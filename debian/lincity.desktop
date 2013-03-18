@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.13.1
+Type=Application
+Name=Lincity
+GenericName=Lincity
+Comment=City simulation game
+Icon=/usr/share/pixmaps/lincity.xpm
+Exec=xlincity
+Terminal=false
+Categories=Application;Game;StrategyGame
