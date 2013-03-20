@@ -106,7 +106,7 @@ fi
 dnl -------------------------------------------------------
 dnl Internationalization
 dnl ALL_LINGUAS="ca"
-AM_GNU_GETTEXT
+AM_GNU_GETTEXT([external])
 dnl -------------------------------------------------------
 dnl GCS: I stole the following from freeciv
 dnl Why doesn't AM_GNU_GETTEXT set LIBS appropriately
@@ -125,7 +125,7 @@ dnl GCS May 05, 2003
 dnl Newest i18n hack (gettext 11.5 ??).  Sigh.
 dnl -------------------------------------------------------
 dnl AC_MSG_WARN([libintl is $LIBINTL])
-LIBS="$LIBS $LIBINTL"
+dnl LIBS="$LIBS $LIBINTL"
 
 dnl -------------------------------------------------------
 dnl GCS Jan 19, 2003
@@ -137,7 +137,7 @@ dnl -------------------------------------------------------
 dnl GCS Jan 19, 2003
 dnl Remove internationalization.  Pushed off to the next version.
 dnl -------------------------------------------------------
-AC_CONFIG_FILES([Makefile intl/Makefile po/Makefile.in m4/Makefile modules/Makefile])
+AC_CONFIG_FILES([Makefile po/Makefile.in m4/Makefile modules/Makefile])
 
 dnl AC_CONFIG_FILES([Makefile])
 
