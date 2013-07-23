@@ -68,6 +68,8 @@
 #include "power.h"
 #include "pbar.h"
 #include "stats.h"
+#include "engine.h"
+#include "simulate.h"
 
 #if defined (WIN32) && !defined (NDEBUG)
 #define START_FAST_SPEED 1
@@ -86,6 +88,10 @@
  * ---------------------------------------------------------------------- */
 void dump_screen (void);
 int verify_city (char *cname);
+void reset_animation_times (void);
+void check_endian (void);
+void eswap32 (int *i);
+void eswap16 (unsigned short *i);
 
 /* ---------------------------------------------------------------------- *
  * Private Global Variables
@@ -96,8 +102,7 @@ char save_names[10][42];
 /* ---------------------------------------------------------------------- *
  * Public functions
  * ---------------------------------------------------------------------- */
-void
-remove_scene (char *cname)
+void remove_scene (char *cname)
 {
     char *s;
     int l;
@@ -305,8 +310,7 @@ save_city_raw (char *cname)
 }
 
 
-void
-save_city (char *cname)
+void save_city (char *cname)
 {
     char *s, *s2, *s3, *s4;
     int l;
@@ -343,8 +347,7 @@ save_city (char *cname)
     free (s4);
 }
 
-void
-load_city (char *cname)
+void load_city (char *cname)
 {
     unsigned long q;
     int i, x, y, z, n, p, ver;
@@ -647,8 +650,7 @@ load_saved_city (char *s)
     free (cname);
 }
 
-void
-reset_animation_times (void)
+void reset_animation_times (void)
 {
     int x, y;
     for (y = 0; y < WORLD_SIDE_LEN; y++)
@@ -740,8 +742,7 @@ sanity_check (void)
 #endif
 
 
-void
-check_endian (void)
+void check_endian (void)
 {
     static int flag = 0;
     char *cs;
@@ -780,8 +781,7 @@ check_endian (void)
     }
 }
 
-void
-eswap32 (int *i)
+void eswap32 (int *i)
 {
   char *cs, c1, c2, c3, c4;
   cs = (char *) i;
@@ -795,8 +795,7 @@ eswap32 (int *i)
   *cs = c1;
 }
 
-void
-eswap16 (unsigned short *i)
+void eswap16 (unsigned short *i)
 {
   char *cs, c1, c2;
   cs = (char *) i;
