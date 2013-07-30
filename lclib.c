@@ -216,7 +216,7 @@ lcalloc (size_t size)
   void * tmp;
   tmp = malloc(size);
   if (tmp == NULL) {
-    printf("couldn't malloc %d bytes!  Dying.\n",size);
+    printf("couldn't malloc %lu bytes!  Dying.\n",size);
     exit(-1);
   }
   
